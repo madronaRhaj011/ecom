@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/uupdate/<%= user.id %>" method="POST">
+        <label for="userid">User ID:</label>
+        <input type="text" name="userid" id="userid" value="<%= user.id %>">
+        <br>
+        <br>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username" value="<%= user.username %>">
+        <br>
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email" value="<%= user.email %>">
+        <br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="text" name="password" id="password" value="<%= user.password %>">
+        <br>
+        <br>
+        <label for="status">Status:</label>
+        <input type="text" name="status" id="status" value="<%= user.status %>">
+        <br>
+        <br>
+        <button type="submit" value="submit">Update</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<%- include('partial/start') %>
+<%- include('partial/navbar') %>
+<%- include('partial/modalsearch') %>
+
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5">
+    <h1 class="text-center text-white display-6">Cart</h1>
+    <ol class="breadcrumb justify-content-center mb-0">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+        <li class="breadcrumb-item active text-white">Cart</li>
+    </ol>
+</div>
+<!-- Single Page Header End -->
+
+
+        <!-- Cart Page Start -->
+        <div class="container-fluid py-5">
+            <div class="container py-5">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Products</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Handle</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <% cart.forEach(cart => { %>
+                            <tr>
+                                <th scope="row">
+                                    <div class="d-flex align-items-center">
+                                        <img src="img/vegetable-item-3.png" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
+                                    </div>
+                                </th>
+                                <td>
+                                    <p class="mb-0 mt-4"><%= cart.name %></p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 mt-4">&#8369;<%= cart.price %> / kg</p>
+                                </td>
+                                <td>
+                                    <div class="input-group quantity mt-4" style="width: 100px;">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-sm btn-minus rounded-circle bg-light border" data-id="<%= cart.id %>" data-quantity="<%= cart.quantity %>">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="text" class="form-control form-control-sm text-center border-0" id="quantity-<%= cart.id %>" value="<%= cart.quantity %>">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-sm btn-plus rounded-circle bg-light border" data-id="<%= cart.id %>" data-quantity="<%= cart.quantity %>">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                                    
+                                <td>
+                                    <p class="mb-0 mt-4">&#8369;<%= cart.total %> / kg</p>
+                                </td>
+                                <td>
+                                    <a href="/delete/<%= cart.id %>" class="btn btn-md rounded-circle bg-light border mt-4">
+                                        <i class="fa fa-times text-danger"></i>
+                                    </a>
+                                </td>
+                                
+                            
+                            </tr>
+                            <%  }) %>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-5">
+                    <input type="text" class="border-0 border-bottom rounded me-5 py-3 mb-4" placeholder="Coupon Code">
+                    <button class="btn border-secondary rounded-pill px-4 py-3 text-primary" type="button">Apply Coupon</button>
+                </div>
+                <div class="row g-4 justify-content-end">
+                    <div class="col-8"></div>
+                    <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+                        <div class="bg-light rounded">
+                            <div class="p-4">
+                                <h1 class="display-6 mb-4">Product <span class="fw-normal">Total</span></h1>
+                                <div class="d-flex justify-content-between mb-4">
+                                    <h5 class="mb-0 me-4">Subtotal:</h5>
+                                    <p class="mb-0">&#8369;<%= totalPrice %></p>
+                                </div>
+                                <div class="d-flex justify-content-between">
+                                    <h5 class="mb-0 me-4">Shipping</h5>
+                                    <div class="">
+                                        <p class="mb-0">Flat rate: &#8369;100</p>
+                                    </div>
+                                </div>
+                                <p class="mb-0 text-end">Shipping to Mindoro.</p>
+                            </div>
+                            <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
+                                <h5 class="mb-0 ps-4 me-4">Total</h5>
+                                <p class="mb-0 pe-4">&#8369;<%= totalPrice + 100 %> </p>
+                            </div>
+                            <button class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4" type="button">
+                               <a href="/checkout"> Proceed Checkout</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cart Page End -->
+
+<%- include('partial/end') %>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Ensure jQuery is loaded -->
+
+<script>
+$(document).ready(function() {
+    // Function to calculate total
+    function calculateTotal() {
+        let total = 0;
+
+        // Iterate through each row in the cart table to sum the totals
+        $('table tbody tr').each(function() {
+            // Get the total value from the respective cell
+            const totalValue = parseFloat($(this).find('td:nth-child(5) p').text().replace(/[$,]/g, '')); // Adjust index if needed
+            total += totalValue; // Sum up the total values
+        });
+
+        // Update the subtotal and total displayed on the page
+        $('#subtotal').text(`$${total.toFixed(2)}`); // Update the subtotal
+        $('#total').text(`$${(total + 3.00).toFixed(2)}`); // Update the total with flat shipping rate
+    }
+
+    // Initial calculation when the document is ready
+    calculateTotal();
+
+    // Event handler for quantity buttons
+    $(document).off('click', '.btn-minus, .btn-plus').on('click', '.btn-minus, .btn-plus', function(event) {
+        event.stopPropagation();  // Stop event from propagating further
+
+        const isMinus = $(this).hasClass('btn-minus');   // Check if it's the minus button
+        const cartItemId = $(this).data('id');           // Get the cart item ID
+        let quantityInput = $('#quantity-' + cartItemId); // Get the quantity input field
+        let quantity = parseInt(quantityInput.val());      // Get the current quantity
+
+        // Adjust the quantity based on the button clicked
+        if (isMinus && quantity > 1) {
+            quantity--;  // Decrease the quantity
+        } else if (!isMinus) {
+            quantity++;  // Increase the quantity
+        }
+
+        // Update the quantity field in the UI
+        quantityInput.val(quantity);
+
+        // Send AJAX request to update the quantity in the database
+        $.ajax({
+            url: '/update-quantity',  // Endpoint to handle the update
+            method: 'POST',
+            data: {
+                id: cartItemId,
+                quantity: quantity
+            },
+            success: function(response) {
+                if (response.success) {
+                    console.log('Quantity updated successfully!', response);
+                    calculateTotal(); // Recalculate the total after quantity update
+                }
+            },
+            error: function(err) {
+                console.log('Error updating quantity:', err);
+            }
+        });
+    });
+});
+</script>

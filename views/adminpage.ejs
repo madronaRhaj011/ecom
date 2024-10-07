@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page ng Admin</title>
+</head>
+<body>
+    <h1>Categories:</h1>
+    <br>
+    <br>
+    <a href="/add">Add Category</a>
+    <table border="1px">
+        <tr>
+            <th>category_id</th>
+            <th>name</th>
+            <th>description</th>
+            <th>created_at</th>
+            <th>updated_at</th>
+        </tr>
+        <% category.forEach(categ => { %>
+        <tr>
+            <td><%= categ.category_id %> </td>
+            <td><%= categ.name %> </td>
+            <td><%= categ.description %> </td>
+            <td><%= categ.created_at %> </td>
+            <td><%= categ.updated_at %> </td>
+            <td>
+                <a href="/delete/ <%= categ.category_id %>">Delete</a>
+                <a href="/edit/ <%= categ.category_id %>">Edit</a>
+            </td>
+
+        </tr>
+        <% }) %>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1>User Admin</h1>
+    <br>
+    <br>
+    <a href="/aadd">Add Users</a>
+    <table border="1px">
+        <tr>
+            <th>User Id</th>
+            <th>username</th>
+            <th>email</th>
+            <th>password</th>
+            <th>status</th>
+        </tr>
+        <% user.forEach(u => { %>
+        <tr>
+            <td><%= u.id %> </td>
+            <td><%= u.username %> </td>
+            <td><%= u.email %> </td>
+            <td><%= u.password %> </td>
+            <td><%= u.status %> </td>
+            <td>
+                <a href="/ddelete/ <%= u.id %>">Delete</a>
+                <a href="/eedit/ <%= u.id %>">Edit</a>
+            </td>
+
+        </tr>
+        <% }) %>
+    </table>
+</body>
+</html>

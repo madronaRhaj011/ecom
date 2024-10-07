@@ -1,0 +1,394 @@
+<%- include('partial/start') %>
+<%- include('partial/navbar') %>
+<%- include('partial/modalsearch') %>
+
+
+ <!-- Fruits Shop Start-->
+ <div class="container-fluid fruite py-5">
+    <div class="container py-5">
+        <h1 class="mb-4">Fresh fruits shop</h1>
+        <div class="row g-4">
+            <div class="col-lg-12">
+                <div class="row g-4">
+                    <div class="col-xl-3">
+                        <div class="input-group w-100 mx-auto d-flex">
+                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
+                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-6"></div>
+                    <div class="col-xl-3">
+                        <div class="bg-light ps-3 py-3 rounded d-flex justify-content-between mb-4">
+                            <label for="fruits">Default Sorting:</label>
+                            <select id="fruits" name="fruitlist" class="border-0 form-select-sm bg-light me-3" form="fruitform">
+                                <option value="volvo">Nothing</option>
+                                <option value="saab">Popularity</option>
+                                <option value="opel">Organic</option>
+                                <option value="audi">Fantastic</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <h4>Categories</h4>
+                                    <ul class="list-unstyled fruite-categorie">
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name">
+                                                <a href="#"><i class="fas fa-apple-alt me-2"></i>Apples</a>
+                                                <span>(3)</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name">
+                                                <a href="#"><i class="fas fa-apple-alt me-2"></i>Oranges</a>
+                                                <span>(5)</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name">
+                                                <a href="#"><i class="fas fa-apple-alt me-2"></i>Strawbery</a>
+                                                <span>(2)</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name">
+                                                <a href="#"><i class="fas fa-apple-alt me-2"></i>Banana</a>
+                                                <span>(8)</span>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name">
+                                                <a href="#"><i class="fas fa-apple-alt me-2"></i>Pumpkin</a>
+                                                <span>(5)</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <h4 class="mb-2">Price</h4>
+                                    <input type="range" class="form-range w-100" id="rangeInput" name="rangeInput" min="0" max="500" value="0" oninput="amount.value=rangeInput.value">
+                                    <output id="amount" name="amount" min-velue="0" max-value="500" for="rangeInput">0</output>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <h4>Additional</h4>
+                                    <div class="mb-2">
+                                        <input type="radio" class="me-2" id="Categories-1" name="Categories-1" value="Beverages">
+                                        <label for="Categories-1"> Organic</label>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="radio" class="me-2" id="Categories-2" name="Categories-1" value="Beverages">
+                                        <label for="Categories-2"> Fresh</label>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="radio" class="me-2" id="Categories-3" name="Categories-1" value="Beverages">
+                                        <label for="Categories-3"> Sales</label>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="radio" class="me-2" id="Categories-4" name="Categories-1" value="Beverages">
+                                        <label for="Categories-4"> Discount</label>
+                                    </div>
+                                    <div class="mb-2">
+                                        <input type="radio" class="me-2" id="Categories-5" name="Categories-1" value="Beverages">
+                                        <label for="Categories-5"> Expired</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <h4 class="mb-3">Featured products</h4>
+                                <div class="d-flex align-items-center justify-content-start">
+                                    <div class="rounded me-4" style="width: 100px; height: 100px;">
+                                        <img src="img/featur-1.jpg" class="img-fluid rounded" alt="">
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-2">Big Banana</h6>
+                                        <div class="d-flex mb-2">
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="d-flex mb-2">
+                                            <h5 class="fw-bold me-2">2.99 $</h5>
+                                            <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-start">
+                                    <div class="rounded me-4" style="width: 100px; height: 100px;">
+                                        <img src="img/featur-2.jpg" class="img-fluid rounded" alt="">
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-2">Big Banana</h6>
+                                        <div class="d-flex mb-2">
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="d-flex mb-2">
+                                            <h5 class="fw-bold me-2">2.99 $</h5>
+                                            <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-start">
+                                    <div class="rounded me-4" style="width: 100px; height: 100px;">
+                                        <img src="img/featur-3.jpg" class="img-fluid rounded" alt="">
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-2">Big Banana</h6>
+                                        <div class="d-flex mb-2">
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="d-flex mb-2">
+                                            <h5 class="fw-bold me-2">2.99 $</h5>
+                                            <h5 class="text-danger text-decoration-line-through">4.11 $</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center my-4">
+                                    <a href="#" class="btn border border-secondary px-4 py-3 rounded-pill text-primary w-100">Vew More</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="position-relative">
+                                    <img src="img/banner-fruits.jpg" class="img-fluid w-100 rounded" alt="">
+                                    <div class="position-absolute" style="top: 50%; right: 10px; transform: translateY(-50%);">
+                                        <h3 class="text-secondary fw-bold">Fresh <br> Fruits <br> Banner</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="row g-4 justify-content-center">
+                            <% product.forEach(pr => { %>
+
+                           
+                            <div class="col-md-6 col-lg-6 col-xl-4">
+                                <div class="rounded position-relative fruite-item text-center" >
+                                    <div class="fruite-img">
+                                        <img src="img/fruite-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
+                                    </div>
+                                    <input type="hidden" name="categy" class="categy" value="<%= pr.category_id %>">
+                                    <div class=" categ text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;"></div>
+                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                        <h4><%= pr.name %></h4>
+                                        <p><%= pr.description %></p>
+                                        <div class="d-flex justify-content-between flex-lg-wrap">
+                                            <p class="text-dark fs-5 fw-bold mb-0">&#8369;<%= pr.price %> / kg</p>
+                                            <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary" data-bs-toggle="modal" data-bs-target="#AddtocartModal" onclick="openModal('<%= pr.name %>', '<%= pr.price %>', 'AddtocartModal', '<%= pr.product_id %>')">
+                                                <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
+                                            </a>
+                                             <!-- Modal -->
+                                             <div class="modal fade" id="AddtocartModal" tabindex="-1" aria-labelledby="AddtocartModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="AddtocartModalLabel">Add to Cart</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h4 id="modalName"></h4>
+                                                            <p id="modalPrice"></p>
+
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <button type="button" id="decreaseQty" class="btn btn-secondary">-</button>
+                                                                <span id="modalQuantity">1</span>
+                                                                <button type="button" id="increaseQty" class="btn btn-secondary">+</button>
+                                                            </div>
+
+                                                            <p>Total: &#8369;<span id="modalTotalPrice"></span></p>
+                                                            <input type="hidden" name="modalprodID" id="modalprodID" >
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                            <button type="button" class="btn btn-primary" id="addToCartButton" onclick="addToCart()">Add to Cart</button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end ng modal -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <% }) %>
+                            
+                            
+                            <div class="col-12">
+                                <div class="pagination d-flex justify-content-center mt-5">
+                                    <% if (currentPageNumber > 1) { %>
+                                        <a href="/shop-product?page=<%= currentPageNumber - 1 %>" class="rounded">&laquo;</a>
+                                    <% } %>
+                                    
+                                    <a href="/shop-product?page=1" class="<%= currentPageNumber === 1 ? 'active' : '' %> rounded">1</a>
+                                    <a href="/shop-product?page=2" class="<%= currentPageNumber === 2 ? 'active' : '' %> rounded">2</a>
+                                    <a href="/shop-product?page=3" class="<%= currentPageNumber === 3 ? 'active' : '' %> rounded">3</a>
+                                    <!-- Add more links or make this dynamic -->
+                                
+                                    <% if (product.length === 10) { %>
+                                        <a href="/shop-product?page=<%= currentPageNumber + 1 %>" class="rounded">&raquo;</a>
+                                    <% } %>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fruits Shop End-->
+
+<%- include('partial/end'); %>
+
+<script>
+    const categories = {
+        1: 'Fruit',
+        2: 'Vegetable',
+        3: 'Meat',
+        4: 'Bread'
+    };
+
+    // Get all elements with the class 'categ'
+    const categElements = document.querySelectorAll('.categ');
+
+    categElements.forEach(categElement => {
+        // Get the category ID from the corresponding hidden input
+        const categoryID = categElement.previousElementSibling.value; // Get the value from the hidden input
+
+        // Check if category ID exists in the categories object
+        if (categories[categoryID]) {
+            categElement.innerText = categories[categoryID]; // Set the inner text to the category
+        } else {
+            categElement.innerText = "Category not found"; // Fallback message if category ID is invalid
+        }
+    });
+
+    let quantity = 1;
+    let pricePerUnit = 0;
+    let activeModal = null;
+    
+    function openModal(name, price, modalId, prodId) {
+        const modal = document.getElementById(modalId);
+        if (!modal) return;
+    
+        // Cache DOM elements to minimize queries
+        const modalName = modal.querySelector('#modalName');
+        const modalPrice = modal.querySelector('#modalPrice');
+        const modalQuantity = modal.querySelector('#modalQuantity');
+        const modalTotalPrice = modal.querySelector('#modalTotalPrice');
+        const modalProdID = modal.querySelector('#modalprodID');
+        const increaseBtn = modal.querySelector('#increaseQty');
+        const decreaseBtn = modal.querySelector('#decreaseQty');
+    
+        // Initialize modal with product data
+        modalName.innerText = name;
+        modalPrice.innerText = 'Price: ₱' + price;
+        quantity = 1;
+        pricePerUnit = parseFloat(price);
+        modalQuantity.innerText = quantity;
+        modalTotalPrice.innerText = (pricePerUnit * quantity).toFixed(2);
+        modalProdID.value = parseInt(prodId);
+
+    
+        // Remove old event listeners
+        increaseBtn.onclick = increaseQty;
+        decreaseBtn.onclick = decreaseQty;
+    
+        activeModal = modal;
+    }
+    
+    function updateModal() {
+        if (activeModal) {
+            const modalQuantity = activeModal.querySelector('#modalQuantity');
+            const modalTotalPrice = activeModal.querySelector('#modalTotalPrice');
+            modalQuantity.innerText = quantity;
+            modalTotalPrice.innerText = (pricePerUnit * quantity).toFixed(2);
+        }
+    }
+    
+    function increaseQty() {
+        quantity++;
+        updateModal();
+    }
+    
+    function decreaseQty() {
+        if (quantity > 1) {
+            quantity--;
+            updateModal();
+        }
+    }
+    
+    function addToCart() {
+    const name = document.getElementById('modalName').innerText;
+    const price = pricePerUnit; // pricePerUnit should have been set when the modal opened
+    const quantity = parseInt(document.getElementById('modalQuantity').innerText);
+    const total = price * quantity;
+    const prodid = document.getElementById('modalprodID').value;
+
+
+    // Log values to check if they are correct
+    console.log('Name:', name);
+    console.log('Price:', price);
+    console.log('Quantity:', quantity);
+    console.log('Total:', total);
+    console.log('prodid:', prodid);
+    
+
+    // Ensure none of the values are null or undefined
+    if (!name || !price || !quantity || !total) {
+        alert('Error: Missing product information. Please try again.');
+        return;
+    }
+
+    // Prepare the data to send to the server
+    const cartData = {
+        name: name,
+        price: price,
+        quantity: quantity,
+        total: total,
+        productId: prodid
+    };
+
+    // Send the data to the server using fetch API
+    fetch('/add-to-cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cartData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Product added to cart successfully!');
+        } else {
+            alert('Failed to add product to cart.');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+</script>

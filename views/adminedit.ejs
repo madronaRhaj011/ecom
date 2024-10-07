@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/update/<%= categ.category_id %>" method="POST">
+        <label for="categid">Category ID:</label>
+        <input type="text" name="categid" id="categid" value="<%= categ.category_id %>">
+        <br>
+        <br>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="<%= categ.name %>">
+        <br>
+        <br>
+        <label for="description">description:</label>
+        <input type="text" name="description" id="description" value="<%= categ.description %>">
+        <br>
+        <br>
+        <button type="submit" value="submit">Update</button>
+    </form>
+</body>
+</html>
